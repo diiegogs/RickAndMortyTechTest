@@ -19,14 +19,27 @@ struct ListCharacterView: View {
     var body: some View {
         GeometryReader { geo in
             Color.green.opacity(0.2)
-            VStack(alignment: .center) {
+            VStack {
                 if isEmptyCharacter {
                     ContentUnavailableView("Sin personajes", systemImage: "doc")
                 } else {
-                    Text("Listado de personajes")
-                    
+                    ScrollView(showsIndicators: false) {
+                        
+                        Text("Listado de personajes")
+                            .font(.system(size: 20.0, weight: .bold, design: .default))
+                            .foregroundStyle(.blue.opacity(0.7))
+                        
+                        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20.0), count: 2)) {
+                            ForEach(viewModel.characters) { character in
+                                CardView(name: character.name, state: character.status, photo: character.image, specie: character.species) {
+                                    print("clicked")
+                                }
+                            }
+                        }
+                    }
                 }
             }
+            .padding()
             .task {
                 await viewModel.getCharacters()
             }

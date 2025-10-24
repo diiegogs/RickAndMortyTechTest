@@ -22,7 +22,7 @@ struct Info: Codable {
 }
 
 // MARK: - Character
-struct Character: Codable {
+struct Character: Codable, Identifiable {
     let id: Int
     let name: String
     let status: String
