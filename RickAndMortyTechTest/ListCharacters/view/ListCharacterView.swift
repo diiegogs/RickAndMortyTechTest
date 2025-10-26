@@ -79,7 +79,7 @@ struct ListCharacterView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     showFavoritesOnly.toggle()
-                    //                        MARK: Implement method to save data with core data and faceid
+//                    MARK: Implement method to save data with core data and faceid
                 } label: {
                     Image(systemName: showFavoritesOnly ? "heart.fill" : "heart")
                         .foregroundStyle(showFavoritesOnly ? .red : .black)
