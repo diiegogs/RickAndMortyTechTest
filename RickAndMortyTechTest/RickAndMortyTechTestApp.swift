@@ -22,7 +22,7 @@ struct RickAndMortyTechTestApp: App {
                 GeometryReader { geo in
                     ZStack {
                         AquaMarkView(text: "v.\(version ?? "") | \(build ?? "")")
-                        ListCharacterView(viewModel: ListCharcaterViewModel())
+                        ListCharacterView(viewModel: ListCharacterViewModel())
                     }
                 }
             }

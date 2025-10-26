@@ -73,6 +73,7 @@ struct DetailView: View {
                     Text(name)
                         .font(.title2)
                         .bold()
+                    
                     AsyncImage(url: URL(string: image)) { image in
                         image.resizable()
                             .scaledToFit()
@@ -85,13 +86,13 @@ struct DetailView: View {
                     HStack {
                         Text(specie)
                             .foregroundStyle(.black.opacity(0.7))
-                            .font(.system(size: 14.0, weight: .regular))
+                            .font(.system(size: 14.0, weight: .bold))
                             .lineLimit(2)
                         
                         Divider()
                         
                         Text(textGender)
-                            .font(.system(size: 14.0, weight: .regular))
+                            .font(.system(size: 14.0, weight: .semibold))
                             .lineLimit(1)
                             .truncationMode(.tail)
                     }
