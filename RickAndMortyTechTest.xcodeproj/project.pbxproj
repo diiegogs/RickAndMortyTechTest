@@ -33,9 +33,22 @@
 		573C0CED2EAAAE04001FC773 /* RickAndMortyTechTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortyTechTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5777A2BF2EADC62A003A85AF /* Exceptions for "RickAndMortyTechTest" folder in "RickAndMortyTechTest" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 573C0CD52EAAAE01001FC773 /* RickAndMortyTechTest */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		573C0CD82EAAAE01001FC773 /* RickAndMortyTechTest */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5777A2BF2EADC62A003A85AF /* Exceptions for "RickAndMortyTechTest" folder in "RickAndMortyTechTest" target */,
+			);
 			path = RickAndMortyTechTest;
 			sourceTree = "<group>";
 		};
@@ -406,6 +419,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RickAndMortyTechTest/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ramapi;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -444,6 +458,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RickAndMortyTechTest/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ramapi;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

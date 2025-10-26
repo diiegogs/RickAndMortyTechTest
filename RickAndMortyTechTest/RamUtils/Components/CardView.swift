@@ -64,7 +64,6 @@ struct CardView: View {
                         .fixedSize(horizontal: false, vertical: true)
                     
                     HStack {
-                        
                         Text(specie)
                             .foregroundStyle(.black.opacity(0.7))
                             .font(.system(size: 14, weight: .regular))

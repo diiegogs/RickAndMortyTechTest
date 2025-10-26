@@ -32,13 +32,13 @@ public final class UServiceManager {
         queryParam: String,
         method: HTTPMethod = .get
     ) async throws -> T {
-        let urlString: String = "\(baseUrl)\(queryParam)"
+        var urlString: String = "\(baseUrl)\(queryParam)"
         
-        guard let url = URL(string: urlString) else {
-            throw URLError(.badURL)
-        }
+        urlString = urlString
+            .replacingOccurrences(of: "%5B", with: "[")
+            .replacingOccurrences(of: "%5D", with: "]")
         
-        let dataTask = AF.request(url, method: method)
+        let dataTask = AF.request(urlString, method: method)
             .validate()
             .serializingData()
         

@@ -25,4 +25,12 @@ extension String {
             default: return self
         }
     }
+    
+    var translatedGender: String {
+        switch self.lowercased() {
+            case "female": return "Mujer"
+            case "male": return "Hombre"
+            default: return self
+        }
+    }
 }

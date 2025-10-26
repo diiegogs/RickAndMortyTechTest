@@ -10,9 +10,11 @@ import SwiftUI
 struct ListCharacterView: View {
     @EnvironmentObject private var networkMonitor: NetworkMonitor
     @StateObject private var viewModel: ListCharcaterViewModel
-    
+
     @State private var searchText: String = ""
     @State private var showFavoritesOnly: Bool = false
+    
+    @State private var selectedCharacter: Character? = nil
     
     private var filteredCharacters: [Character] {
         viewModel.characters.filter { character in
@@ -31,7 +33,7 @@ struct ListCharacterView: View {
     }
     
     var body: some View {
-        GeometryReader { geo in
+        GeometryReader { [weak viewModel] _ in
             Color.green.opacity(0.2)
             VStack {
                 if networkMonitor.isConnectedInternet {
@@ -46,7 +48,12 @@ struct ListCharacterView: View {
                                                  status: character.status.translatedStatus,
                                                  photo: character.image,
                                                  specie: character.species.translatedSpecie) {
-                                            print("clicked")
+                                            withAnimation(.spring()) {
+                                                selectedCharacter = character
+                                                Task {
+                                                    await viewModel?.getEpisodesCharacter(episodes: selectedCharacter?.episode ?? [])
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -55,41 +62,66 @@ struct ListCharacterView: View {
                         }
                     }
                     .task {
-                        await viewModel.getCharacters()
+                        await viewModel?.getCharacters()
                     }
                     .onReceive(networkMonitor.$isConnectedInternet) { connected in
                         if connected {
-                            Task { await viewModel.getCharacters() }
+                            Task { await viewModel?.getCharacters() }
                         }
                     }
                 } else {
                     NetworkView()
                 }
             }
-        }
-        .searchable(
-            text: $searchText,
-            placement: .navigationBarDrawer(
-                displayMode: .always),
-            prompt: ""
-        )
-        .toolbarBackground(Color.green.opacity(0.2), for: .navigationBar)
-        .toolbarBackground(.visible, for: .navigationBar)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    showFavoritesOnly.toggle()
-//                    MARK: Implement method to save data with core data and faceid
-                } label: {
-                    Image(systemName: showFavoritesOnly ? "heart.fill" : "heart")
-                        .foregroundStyle(showFavoritesOnly ? .red : .black)
+            .searchable(
+                text: $searchText,
+                placement: .navigationBarDrawer(
+                    displayMode: .always),
+                prompt: ""
+            )
+            .toolbarBackground(Color.green.opacity(0.2), for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbar { [weak viewModel] in
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        viewModel?.sharedAuth.getStatusAuthenticate { success in
+                            if success {
+                                withAnimation {
+                                    showFavoritesOnly.toggle()
+                                }
+                            } else {
+                                print(viewModel?.sharedAuth.errorMessage ?? "Error de autenticación")
+                            }
+                        }
+                    } label: {
+                        Image(systemName: showFavoritesOnly ? "star.fill" : "star")
+                            .foregroundStyle(showFavoritesOnly ? .red : .black)
+                    }
                 }
             }
+            .overlay { [weak viewModel] in
+                if let selectedCharacter = selectedCharacter,
+                   viewModel?.showOverlay == true {
+                    
+                    let episodes: [Episode] = viewModel?.episodes ?? []
+                    
+                    DetailView(
+                        name: selectedCharacter.name,
+                        image: selectedCharacter.image,
+                        gender: selectedCharacter.gender,
+                        specie: selectedCharacter.species.translatedSpecie,
+                        episodes: episodes
+                    ) {
+                        viewModel?.showOverlay = false
+                    }
+                }
+            }
+
+            .refreshable { [weak viewModel] in
+                await viewModel?.getCharacters()
+            }
+            .ignoresSafeArea(.all, edges: .bottom)
         }
-        .refreshable {
-            await viewModel.getCharacters()
-        }
-        .ignoresSafeArea(.all, edges: .bottom)
     }
 }
 

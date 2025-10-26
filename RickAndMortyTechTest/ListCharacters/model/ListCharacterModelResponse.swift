@@ -49,3 +49,14 @@ struct Location: Codable {
     let name: String
     let url: String
 }
+
+// MARK: - Episode
+struct Episode: Identifiable, Codable {
+    let id: Int
+    let name: String
+    let airDate: String
+    let episode: String
+    let characters: [String]
+    let url: String
+    let created: String
+}
