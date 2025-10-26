@@ -1,5 +1,5 @@
 //
-//  AquaMarkView.swift
+//  UAquaMarkView.swift
 //  RickAndMortyTechTest
 //
 //  Created by Juan Diego Garcia Serrano on 23/10/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AquaMarkView: View {
+struct UAquaMarkView: View {
     private var text: String
     
     init(text: String) {
@@ -32,5 +32,5 @@ struct AquaMarkView: View {
 }
 
 #Preview {
-    AquaMarkView(text: "")
+    UAquaMarkView(text: "")
 }

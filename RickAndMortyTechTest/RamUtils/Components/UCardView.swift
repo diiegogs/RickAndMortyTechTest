@@ -1,5 +1,5 @@
 //
-//  CardView.swift
+//  UCardView.swift
 //  RickAndMortyTechTest
 //
 //  Created by Juan Diego Garcia Serrano on 23/10/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardView: View {
+struct UCardView: View {
     private var name: String
     private var status: String
     private var photo: String
@@ -104,7 +104,7 @@ func stateCharacterView(status: String) -> some View {
 }
 
 #Preview {
-    CardView(
+    UCardView(
         name: "",
         status: "",
         photo: "",

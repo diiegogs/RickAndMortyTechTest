@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  UDetailView.swift
 //  RickAndMortyTechTest
 //
 //  Created by Juan Diego Garcia Serrano on 23/10/25.
@@ -8,7 +8,7 @@
 import SwiftUI
 import AVKit
 
-struct DetailView: View {
+struct UDetailView: View {
     private var name: String
     private var image: String
     private var gender: String
@@ -152,5 +152,5 @@ struct DetailView: View {
 }
 
 #Preview {
-    DetailView(name: "", image: "", gender: "", specie: "", episodes: []) { }
+    UDetailView(name: "", image: "", gender: "", specie: "", episodes: []) { }
 }

@@ -47,7 +47,7 @@ struct ListCharacterView: View {
                                 ScrollView(showsIndicators: false) {
                                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 2)) {
                                         ForEach(filteredCharacters) { character in
-                                            CardView(name: character.name,
+                                            UCardView(name: character.name,
                                                      status: character.status.translatedStatus,
                                                      photo: character.image,
                                                      specie: character.species.translatedSpecie) {
@@ -73,7 +73,7 @@ struct ListCharacterView: View {
                             }
                         }
                     } else {
-                        NetworkView()
+                        UNetworkView()
                     }
                 }
                 .searchable(
@@ -108,7 +108,7 @@ struct ListCharacterView: View {
                         
                         let episodes: [Episode] = viewModel?.episodes ?? []
                         
-                        DetailView(
+                        UDetailView(
                             name: selectedCharacter.name,
                             image: selectedCharacter.image,
                             gender: selectedCharacter.gender,

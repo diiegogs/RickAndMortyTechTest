@@ -1,5 +1,5 @@
 //
-//  NetworkView.swift
+//  UNetworkView.swift
 //  RickAndMortyTechTest
 //
 //  Created by Juan Diego Garcia Serrano on 25/10/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NetworkView: View {
+struct UNetworkView: View {
     private var makeTextNetwork: AttributedString {
         var textPlease: AttributedString = AttributedString("Por favor, ")
         textPlease.font = .system(size: 16.0)
@@ -42,5 +42,5 @@ struct NetworkView: View {
 }
 
 #Preview {
-    NetworkView()
+    UNetworkView()
 }

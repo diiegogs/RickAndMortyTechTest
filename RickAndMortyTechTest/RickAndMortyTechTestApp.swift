@@ -13,6 +13,8 @@ struct RickAndMortyTechTestApp: App {
 //    MARK: Shared in App
     @StateObject private var networkMonitor: NetworkMonitor = NetworkMonitor()
     
+    private let provider: CoreDataProvider = CoreDataProvider()
+    
     private let version: String? = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     private let build: String? = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
 
@@ -21,12 +23,13 @@ struct RickAndMortyTechTestApp: App {
             NavigationStack {
                 GeometryReader { geo in
                     ZStack {
-                        AquaMarkView(text: "v.\(version ?? "") | \(build ?? "")")
+                        UAquaMarkView(text: "v.\(version ?? "") | \(build ?? "")")
                         ListCharacterView(viewModel: ListCharacterViewModel())
                     }
                 }
             }
             .environmentObject(networkMonitor)
+            .environment(\.managedObjectContext, provider.viewContext)
         }
     }
 }

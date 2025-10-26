@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		575D0E032EAABB9A00E15142 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 575D0E022EAABB9A00E15142 /* Alamofire */; };
+		57EFD5CF2EAEA68100B8F65A /* CharacterModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57EFD5CD2EAEA68100B8F65A /* CharacterModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		573C0CD62EAAAE01001FC773 /* RickAndMortyTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		573C0CE32EAAAE04001FC773 /* RickAndMortyTechTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortyTechTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		573C0CED2EAAAE04001FC773 /* RickAndMortyTechTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortyTechTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57EFD5CE2EAEA68100B8F65A /* CharacterModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CharacterModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -93,6 +95,7 @@
 		573C0CCD2EAAAE01001FC773 = {
 			isa = PBXGroup;
 			children = (
+				57EFD5CD2EAEA68100B8F65A /* CharacterModel.xcdatamodeld */,
 				573C0CD82EAAAE01001FC773 /* RickAndMortyTechTest */,
 				573C0CE62EAAAE04001FC773 /* RickAndMortyTechTestTests */,
 				573C0CF02EAAAE04001FC773 /* RickAndMortyTechTestUITests */,
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57EFD5CF2EAEA68100B8F65A /* CharacterModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,6 +631,19 @@
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		57EFD5CD2EAEA68100B8F65A /* CharacterModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				57EFD5CE2EAEA68100B8F65A /* CharacterModel.xcdatamodel */,
+			);
+			currentVersion = 57EFD5CE2EAEA68100B8F65A /* CharacterModel.xcdatamodel */;
+			path = CharacterModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 573C0CCE2EAAAE01001FC773 /* Project object */;
 }

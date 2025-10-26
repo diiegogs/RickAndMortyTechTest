@@ -35,14 +35,18 @@ class ListCharacterViewModel: ObservableObject {
 
         do {
             if episodes.count == 1 {
-                let episode: Episode = try await UServiceManager.shared.callService(queryParam: episodes[0])
+                let episode: Episode = try await UServiceManager.shared.callService(queryParam: "episode/\(episodes[0].split(separator: "/").last!)")
                 
                 await MainActor.run {
                     self.episodes = [episode]
                     self.showOverlay = true
                 }
             } else {
-                let allEpisodes: [Episode] = try await UServiceManager.shared.callService(queryParam: "episode/\(episodes.map { $0.split(separator: "/").last! })")
+                let episodeIds = episodes.compactMap { URL(string: $0)?.lastPathComponent }
+                let episodeParam = "[\(episodeIds.joined(separator: ","))]"
+                
+                let allEpisodes: [Episode] = try await UServiceManager.shared.callService(queryParam: "episode/\(episodeParam)")
+                
                 await MainActor.run {
                     self.episodes = allEpisodes
                     self.showOverlay = true
