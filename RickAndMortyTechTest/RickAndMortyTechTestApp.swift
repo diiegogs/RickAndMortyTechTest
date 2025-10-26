@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct RickAndMortyTechTestApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+//    MARK: Shared in App
+    @StateObject private var networkMonitor: NetworkMonitor = NetworkMonitor()
     
     private let version: String? = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     private let build: String? = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
@@ -24,6 +26,7 @@ struct RickAndMortyTechTestApp: App {
                     }
                 }
             }
+            .environmentObject(networkMonitor)
         }
     }
 }

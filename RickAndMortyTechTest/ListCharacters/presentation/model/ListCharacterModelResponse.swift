@@ -35,6 +35,7 @@ struct Character: Codable, Identifiable {
     let episode: [String]
     let url: String
     let created: String
+    var isFavorite: Bool? = false
 }
 
 // MARK: - Origin
@@ -43,7 +44,7 @@ struct Origin: Codable {
     let url: String
 }
 
-// MARK: - L+ocation
+// MARK: - Location
 struct Location: Codable {
     let name: String
     let url: String

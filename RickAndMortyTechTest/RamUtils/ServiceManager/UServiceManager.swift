@@ -1,5 +1,5 @@
 //
-//  Utl_ServiceManager.swift
+//  UServiceManager.swift
 //  RickAndMortyTechTest
 //
 //  Created by Juan Diego Garcia Serrano on 23/10/25.
@@ -9,11 +9,11 @@ import Foundation
 
 import Alamofire
 
-/// `Utl_ServiceManager` facilita la comunicación con servicios web usando `async/await`.
-public final class Utl_ServiceManager {
+/// `UServiceManager` facilita la comunicación con servicios web usando `async/await`.
+public final class UServiceManager {
     
-    /// Instancia compartida del `Utl_ServiceManager`.
-    public static let shared = Utl_ServiceManager()
+    /// Instancia compartida del `UServiceManager`.
+    public static let shared = UServiceManager()
     
     /// Constructor privado para usar solo la instancia compartida.
     private init() {}

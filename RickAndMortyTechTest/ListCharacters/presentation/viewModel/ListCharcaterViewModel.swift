@@ -12,7 +12,7 @@ class ListCharcaterViewModel: ObservableObject {
     @Published internal var characters: [Character] = []
     @Published internal var errorMessage: String = ""
     
-    private let shared: Utl_ServiceManager = Utl_ServiceManager.shared
+    private let shared: UServiceManager = UServiceManager.shared
     
     internal func getCharacters() async {
         do {
